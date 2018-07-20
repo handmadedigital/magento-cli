@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+           testmodule
+        </title>
+        <!-- <link src="gauge_testmodule::js/app.js" /> -->
+        <css src="gauge_testmodule::css/testmodule.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block name="gauge_testmodule.testmodule" class="Gauge\TestModule\Block\TestModule" template="Gauge_TestModule::testmodule.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

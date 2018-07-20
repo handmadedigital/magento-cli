@@ -1,0 +1,1 @@
+<h2>Base template for your {{Namespace}}_{{ModuleName}} module.</h2>

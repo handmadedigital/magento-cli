@@ -27,9 +27,25 @@ const templateFiles = [
     'template': 'module-template/etc/frontend/routes.txt'
   },
   {
-    'name': 'Display.php',
+    'name': 'Index.php',
     'path': '/Controller/Index',
-    'template': 'module-template/Controller/Index/Display.txt'
+    'template': 'module-template/Controller/Index/Index.txt'
+  },
+  {
+    'name': 'modulename_index_index.xml',
+    'path': '/view/frontend/layout',
+    'template': 'module-template/view/frontend/layout/modulename_index_index.txt'
+  },
+  {
+    'name': 'modulename.phtml',
+    'path': '/view/frontend/templates',
+    'template': 'module-template/view/frontend/templates/modulename.txt'
+  }
+  ,
+  {
+    'name': 'ModuleName.php',
+    'path': '/Block',
+    'template': 'module-template/Block/ModuleName.txt'
   }
 ]
 
