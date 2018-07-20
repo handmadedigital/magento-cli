@@ -2,8 +2,9 @@
 const chalk       = require('chalk');
 const clear       = require('clear');
 const figlet      = require('figlet');
-const fs          = require('fs')
+const fs          = require('fs');
 const shell       = require('shelljs');
+const path        = require('path');
 
 const files = require('./lib/files');
 const inquirer  = require('./lib/inquirer');
@@ -20,7 +21,7 @@ console.log(
 const run = async () => {
   const moduleInfo = await inquirer.askModuleInfo();
   console.log(moduleInfo);
-  fs.readFile('module-template/registration.txt', 'utf8', function (err,data) {
+  fs.readFile(path.resolve(__dirname, 'module-template/registration.txt'), 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
     }
