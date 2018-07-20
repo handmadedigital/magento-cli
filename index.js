@@ -20,7 +20,7 @@ console.log(
 const run = async () => {
   const moduleInfo = await inquirer.askModuleInfo();
   console.log(moduleInfo);
-  fs.readFile('./module-template/registration.php', 'utf8', function (err,data) {
+  fs.readFile('module-template/registration.txt', 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
     }
