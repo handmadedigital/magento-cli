@@ -2,8 +2,7 @@
 
 namespace {{Namespace}}\{{ModuleName}}\Block;
 
-class {{ModuleName}} extends \Magento\Framework\View\Element\Template implements
-    \Magento\Framework\DataObject\IdentityInterface
+class {{ModuleName}} extends \Magento\Framework\View\Element\Template
 {
    
 }
