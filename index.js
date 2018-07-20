@@ -8,8 +8,30 @@ const path        = require('path');
 
 const files = require('./lib/files');
 const inquirer  = require('./lib/inquirer');
-const github  = require('./lib/github');
+const generator  = require('./lib/generator');
 const CURR_DIR = process.cwd();
+const templateFiles = [
+  {
+    'name': 'registration.php',
+    'path': '',
+    'template': 'module-template/registration.txt'
+  },
+  {
+    'name': 'module.xml',
+    'path': '/etc',
+    'template': 'module-template/etc/module.txt'
+  },
+  {
+    'name': 'routes.xml',
+    'path': '/etc/frontend',
+    'template': 'module-template/etc/frontend/routes.txt'
+  },
+  {
+    'name': 'Display.php',
+    'path': '/Controller/Index',
+    'template': 'module-template/Controller/Index/Display.txt'
+  }
+]
 
 clear();
 console.log(
@@ -21,26 +43,9 @@ console.log(
 const run = async () => {
   const moduleInfo = await inquirer.askModuleInfo();
   console.log(moduleInfo);
-  fs.readFile(path.resolve(__dirname, 'module-template/registration.txt'), 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    let result = data.replace(/{{ModuleName}}/g, moduleInfo.ModuleName);
-    result = result.replace(/{{Namespace}}/g, moduleInfo.ModuleNamespace);
-
-    const path = `${CURR_DIR}/app/code/local/${moduleInfo.ModuleName}/${moduleInfo.ModuleNamespace}`
-    // console.log(result, files.getCurrentDirectoryBase())
-
-    if (!fs.existsSync(path)){
-      shell.mkdir('-p', path);
-      console.log("The folder was succesfully saved!");
-    }
-
-    fs.writeFile(`${path}/registration.php`, result, (err) => {
-      if (err) throw err;
-      console.log("The file was succesfully saved!");
-    }); 
-  });
+  templateFiles.map(file => {
+    generator.buildFile(moduleInfo, file)
+  })
 }
 
 run();
